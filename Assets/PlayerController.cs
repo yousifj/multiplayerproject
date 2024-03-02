@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     //config
     [SerializeField] float runSpeed = 5f;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
         if (!isAlive) { return; }
         Run();
         Jump();
