@@ -7315,6 +7315,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1898725099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6657132491892634801, guid: 51e15435be3ac424b900d79ed3b3a43e, type: 3}
+  m_PrefabInstance: {fileID: 1613141525829648126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1898725108
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898725099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c46d59b011ba0549bf2aef9c4513301, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1613141525829648126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7458,10 +7484,6 @@ PrefabInstance:
     - target: {fileID: 7104183875136305018, guid: 51e15435be3ac424b900d79ed3b3a43e, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3598538595
-      objectReference: {fileID: 0}
-    - target: {fileID: 7104183875136305018, guid: 51e15435be3ac424b900d79ed3b3a43e, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 1516338599
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51e15435be3ac424b900d79ed3b3a43e, type: 3}

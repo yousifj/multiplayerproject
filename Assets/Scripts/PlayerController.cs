@@ -72,7 +72,7 @@ public class PlayerController : NetworkBehaviour
         rigidBody2D.velocity = new Vector2(inputVelocity * runSpeed, rigidBody2D.velocity.y);
         FlipSprite();
         bool playerisMovingHorzantily = Mathf.Abs(rigidBody2D.velocity.x) > Mathf.Epsilon;
-        //animator.SetBool("isRuning", playerisMovingHorzantily);
+        animator.SetBool("isRuning", playerisMovingHorzantily);
     }
     private void Jump()
     {
