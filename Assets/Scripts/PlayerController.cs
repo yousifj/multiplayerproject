@@ -123,6 +123,7 @@ public class PlayerController : NetworkBehaviour
 
     private void FlipSprite()
     {
+        
         bool playerisMovingHorzantily = Mathf.Abs(rigidBody2D.velocity.x) > Mathf.Epsilon;
 
         if (playerisMovingHorzantily)
