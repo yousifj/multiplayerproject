@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ public class PlayerController : NetworkBehaviour
     Animator animator;
     Collider2D mycollider2D;
     Collider2D feetBoxcollider2D;
+    bool hostPlayer = false;
 
     void Start()
     {
@@ -36,6 +38,8 @@ public class PlayerController : NetworkBehaviour
         mycollider2D = GetComponent<Collider2D>();
         feetBoxcollider2D = GetComponent<BoxCollider2D>();
         gravityStart = rigidBody2D.gravityScale;
+        FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
+
     }
     // Update is called once per frame
     void Update()
@@ -50,6 +54,10 @@ public class PlayerController : NetworkBehaviour
             Die();
         }
 
+    }
+    public bool statues()
+    {
+        return hostPlayer;
     }
 
     private void Clime()
