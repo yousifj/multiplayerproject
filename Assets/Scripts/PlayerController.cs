@@ -16,6 +16,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climeSpeed = 1f;
     [SerializeField] Vector2 deathJump = new Vector2(25, 50);
+    [SerializeField] CinemachineVirtualCamera vc;
 
 
 
@@ -38,7 +39,7 @@ public class PlayerController : NetworkBehaviour
         mycollider2D = GetComponent<Collider2D>();
         feetBoxcollider2D = GetComponent<BoxCollider2D>();
         gravityStart = rigidBody2D.gravityScale;
-        FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
+        //FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
 
     }
     // Update is called once per frame
@@ -54,6 +55,17 @@ public class PlayerController : NetworkBehaviour
             Die();
         }
 
+    }
+    public override void OnNetworkSpawn()
+    {
+        if (IsOwner)
+        {
+            vc.Priority = 1;
+        }
+        else
+        {
+            vc.Priority = 0;
+        }
     }
     public bool statues()
     {
