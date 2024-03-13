@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManger : MonoBehaviour
 {
@@ -15,5 +16,13 @@ public class UIManger : MonoBehaviour
     public void startHost()
     {
         NetworkManager.Singleton.StartHost();
+    }
+    public void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
