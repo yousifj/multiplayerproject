@@ -275,7 +275,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 24f27f75f1a98b04c9f8d6d1676f88d1, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -334,6 +334,7 @@ MonoBehaviour:
   climeSpeed: 1
   deathJump: {x: 0, y: 0}
   vc: {fileID: 2074971690}
+  respawn: {fileID: 0}
 --- !u!61 &3425221174990976839
 BoxCollider2D:
   m_ObjectHideFlags: 0
