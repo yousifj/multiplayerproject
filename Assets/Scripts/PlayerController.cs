@@ -31,6 +31,7 @@ public class PlayerController : NetworkBehaviour
     Collider2D mycollider2D;
     Collider2D feetBoxcollider2D;
     bool hostPlayer = false;
+    public GameObject respawn;
 
     void Start()
     {
@@ -39,6 +40,11 @@ public class PlayerController : NetworkBehaviour
         mycollider2D = GetComponent<Collider2D>();
         feetBoxcollider2D = GetComponent<BoxCollider2D>();
         gravityStart = rigidBody2D.gravityScale;
+        if (respawn == null)
+        {
+            respawn = GameObject.FindGameObjectWithTag("Respawn");
+        }
+        this.transform.position = respawn.transform.position;
         //FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
 
     }
@@ -159,7 +165,7 @@ public class PlayerController : NetworkBehaviour
         //}
     }
 
-    private void Die()
+    public void Die()
     {
         isAlive = false;
       //  animator.SetBool("isDoubleJumping", false);

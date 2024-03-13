@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2939076880
+  GlobalObjectIdHash: 1516338599
   InScenePlacedSourceGlobalObjectIdHash: 1516338599
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -332,7 +332,7 @@ MonoBehaviour:
   runSpeed: 5
   jumpSpeed: 5
   climeSpeed: 1
-  deathJump: {x: 25, y: 50}
+  deathJump: {x: 0, y: 0}
   vc: {fileID: 2074971690}
 --- !u!61 &3425221174990976839
 BoxCollider2D:
