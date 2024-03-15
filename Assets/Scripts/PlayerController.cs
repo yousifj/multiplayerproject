@@ -32,7 +32,11 @@ public class PlayerController : NetworkBehaviour
     Collider2D feetBoxcollider2D;
     bool hostPlayer = false;
     public GameObject respawn;
-
+    //keep this object alive when we go to the next level.
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
