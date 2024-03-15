@@ -134,7 +134,7 @@ public class PlayerController : NetworkBehaviour
                 Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
                 rigidBody2D.velocity = jumpVelocity;
                 canDoubleJump = true;
-                //FindObjectOfType<AudioManger>().Play("Jump");
+                FindObjectOfType<AudioManger>().Play("Jump");
             }
             else if (canDoubleJump)
             {
@@ -142,7 +142,7 @@ public class PlayerController : NetworkBehaviour
              //   animator.SetBool("isDoubleJumping", true);
                 Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
                 rigidBody2D.velocity = jumpVelocity;
-                //FindObjectOfType<AudioManger>().Play("Jump");
+                FindObjectOfType<AudioManger>().Play("Jump");
             }
 
 
