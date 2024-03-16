@@ -117,7 +117,7 @@ public class PlayerController : NetworkBehaviour
         {
             doubleJumpOnce = true;
             canDoubleJump = true;
-            //animator.SetBool("isJumping", false);
+            animator.SetBool("isJumping", false);
            // animator.SetBool("isDoubleJumping", false);
         }
         else if (!isGrounded)
@@ -128,14 +128,14 @@ public class PlayerController : NetworkBehaviour
                 doubleJumpOnce = false;
 
             }
-          //  animator.SetBool("isJumping", true);
+            animator.SetBool("isJumping", true);
         }
         if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
 
-             //   animator.SetBool("isJumping", true);
+                animator.SetBool("isJumping", true);
                 Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
                 rigidBody2D.velocity = jumpVelocity;
                 canDoubleJump = true;
@@ -178,16 +178,23 @@ public class PlayerController : NetworkBehaviour
     {
         isAlive = false;
       //  animator.SetBool("isDoubleJumping", false);
-      //  animator.SetBool("isDead", true);
+        animator.SetBool("isDead", true);
 
         rigidBody2D.velocity = deathJump;
-        StartCoroutine(HandelDeath());
         FindObjectOfType<AudioManger>().Play("Death");
+        StartCoroutine(HandelDeath());
+        
 
     }
+    // Handel player death
     IEnumerator HandelDeath()
     {
-        yield return new WaitForSeconds(2);
+        //wait few seconds (3.2 is the length of death sound)
+        yield return new WaitForSeconds(3.2f);
+        //return the player to spawn position
+        this.transform.position = respawn.transform.position;
+        isAlive = true;
+        animator.SetBool("isDead", false);
         //FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
     }

@@ -390,7 +390,7 @@ MonoBehaviour:
   runSpeed: 5
   jumpSpeed: 5
   climeSpeed: 1
-  deathJump: {x: 0, y: 0}
+  deathJump: {x: 10, y: 10}
   vc: {fileID: 2074971690}
   audioListener: {fileID: 0}
   respawn: {fileID: 0}
