@@ -14,23 +14,27 @@ public class KeyButton : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Check if the player pressed the button
         PlayerController player = collision.GetComponent<PlayerController>();
-        if (player) { 
+        if (player) {
+            // Open the door when the button is clicked by the player
             keysPressed = true;
             door.openDoor();
             animator.SetBool("isClicked", true);
             FindObjectOfType<AudioManger>().Play("SwitchClicked");
         }
     }
-    // Open the door when the button is clicked
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player)
         {
+            // Close the door when the player leaves the switch
             keysPressed = false;
             animator.SetBool("isClicked", false);
             if (!otherButton.keysPressed)

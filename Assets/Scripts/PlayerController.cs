@@ -43,7 +43,7 @@ public class PlayerController : NetworkBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         mycollider2D = GetComponent<Collider2D>();
-        feetBoxcollider2D = GetComponent<BoxCollider2D>();
+        feetBoxcollider2D = GetComponentInChildren<BoxCollider2D>();
         gravityStart = rigidBody2D.gravityScale;
         if (respawn == null)
         {
@@ -67,6 +67,7 @@ public class PlayerController : NetworkBehaviour
         }
 
     }
+    // When the player first spawn set up the camera
     public override void OnNetworkSpawn()
     {
         if (IsOwner)
@@ -80,11 +81,12 @@ public class PlayerController : NetworkBehaviour
             vc.Priority = 0;
         }
     }
+    // Check if this player is host for the other MonoBehaviour objects to use.
     public bool statues()
     {
         return hostPlayer;
     }
-
+    // Let player clime 
     private void Clime()
     {
 
@@ -153,7 +155,7 @@ public class PlayerController : NetworkBehaviour
 
 
     }
-
+    // Make player sprite matches where he is faceing
     private void FlipSprite()
     {
         
@@ -180,7 +182,7 @@ public class PlayerController : NetworkBehaviour
 
         rigidBody2D.velocity = deathJump;
         StartCoroutine(HandelDeath());
-        //FindObjectOfType<AudioManger>().Play("Death");
+        FindObjectOfType<AudioManger>().Play("Death");
 
     }
     IEnumerator HandelDeath()
