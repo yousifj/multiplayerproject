@@ -39,7 +39,8 @@ public class KeyButton : MonoBehaviour
             animator.SetBool("isClicked", false);
             if (!otherButton.keysPressed)
             {
-                door.closeDoor();    
+                door.closeDoor();
+                FindObjectOfType<AudioManger>().Play("SwitchClicked");
             }
         }
 

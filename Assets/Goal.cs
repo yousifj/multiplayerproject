@@ -4,8 +4,7 @@ using System.Collections.Generic;
 public class Goal : MonoBehaviour
 {
     bool keyPicked = false;
-    // Add a set to keep track of the players 
-    List<int> playersInside = new List<int>();
+    int playercount = 0;
     // Function to set the key picked
     public void openGoal()
     {
@@ -14,14 +13,13 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if player has enter triggerd this collider, if it did add it to a list
-        // I'm doing this because the player has 2 colliders so I want to make sure that each player trigger this once
+        // Check if player has enter triggerd this collider, if it did add it 
         PlayerController player = collision.GetComponent<PlayerController>();
-        if (player && !playersInside.Contains(player.GetInstanceID()))
+        if (player)
         {
-            playersInside.Add(player.GetInstanceID());
+            playercount++;
             // If both players are in the goal and key was picked move to the next level
-            if (keyPicked && playersInside.Count == 2)
+            if (keyPicked && playercount == 2)
             {
                 // Go to the next level
                 FindObjectOfType<UIManger>().NextScene();
@@ -33,9 +31,9 @@ public class Goal : MonoBehaviour
     {
         // Check if player has exit triggerd this collider, if it did remove it from the list
         PlayerController player = collision.GetComponent<PlayerController>();
-        if (player && playersInside.Contains(player.GetInstanceID()))
+        if (player)
         {
-            playersInside.Remove(player.GetInstanceID());
+            playercount--;
         }
     }
 

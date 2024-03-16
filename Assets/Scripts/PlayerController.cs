@@ -45,9 +45,13 @@ public class PlayerController : NetworkBehaviour
         mycollider2D = GetComponent<Collider2D>();
         feetBoxcollider2D = GetComponentInChildren<BoxCollider2D>();
         gravityStart = rigidBody2D.gravityScale;
-        if (respawn == null)
+        if (respawn == null && IsHost)
         {
-            respawn = GameObject.FindGameObjectWithTag("Respawn");
+            respawn = GameObject.FindGameObjectWithTag("Host");
+        }
+        if (respawn == null && IsClient)
+        {
+            respawn = GameObject.FindGameObjectWithTag("Client");
         }
         this.transform.position = respawn.transform.position;
         //FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
