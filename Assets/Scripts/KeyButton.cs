@@ -21,6 +21,7 @@ public class KeyButton : MonoBehaviour
             keysPressed = true;
             door.openDoor();
             animator.SetBool("isClicked", true);
+            FindObjectOfType<AudioManger>().Play("SwitchClicked");
         }
     }
     // Open the door when the button is clicked

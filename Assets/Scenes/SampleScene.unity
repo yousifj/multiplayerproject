@@ -867,11 +867,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!81 &519420029 stripped
-AudioListener:
-  m_CorrespondingSourceObject: {fileID: 519420029, guid: 51e15435be3ac424b900d79ed3b3a43e, type: 3}
-  m_PrefabInstance: {fileID: 1331324553}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &614979882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,6 +1165,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: e8866e47fe3447d408d2f3b3af621d70, type: 3}
   DeathSound: {fileID: 8300000, guid: ba80165bdd992344987dd36fb2ba90c4, type: 3}
   KeyPicked: {fileID: 8300000, guid: d24cc31968db56f44bca84f706e47913, type: 3}
+  switchClicked: {fileID: 8300000, guid: 11df2bace7d209340a81bd9c3798a25f, type: 3}
 --- !u!4 &722420277
 Transform:
   m_ObjectHideFlags: 0
@@ -1503,10 +1499,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1030681742108863220, guid: 51e15435be3ac424b900d79ed3b3a43e, type: 3}
-      propertyPath: audioListener
-      value: 
-      objectReference: {fileID: 519420029}
     - target: {fileID: 6657132491892634801, guid: 51e15435be3ac424b900d79ed3b3a43e, type: 3}
       propertyPath: m_Name
       value: Player

@@ -7,6 +7,7 @@ public class AudioManger : MonoBehaviour
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip DeathSound;
     [SerializeField] AudioClip KeyPicked;
+    [SerializeField] AudioClip switchClicked;
 
     AudioSource audioSource;
 
@@ -27,6 +28,9 @@ public class AudioManger : MonoBehaviour
                 break;
             case "Key Picked":
                 audioSource.PlayOneShot(KeyPicked);
+                break;
+            case "SwitchClicked":
+                audioSource.PlayOneShot(switchClicked);
                 break;
                 default: break;
         }
