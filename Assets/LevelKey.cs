@@ -10,6 +10,7 @@ public class LevelKey : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             FindAnyObjectByType<Goal>().openGoal();
+            FindAnyObjectByType<AudioManger>().Play("Key Picked");
             Destroy(gameObject);
         }
     }
