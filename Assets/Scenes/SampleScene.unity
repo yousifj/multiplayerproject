@@ -1348,6 +1348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: e8866e47fe3447d408d2f3b3af621d70, type: 3}
   DeathSound: {fileID: 8300000, guid: ba80165bdd992344987dd36fb2ba90c4, type: 3}
+  KeyPicked: {fileID: 8300000, guid: d24cc31968db56f44bca84f706e47913, type: 3}
 --- !u!4 &722420277
 Transform:
   m_ObjectHideFlags: 0
@@ -1511,6 +1512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 914819377}
+  otherButton: {fileID: 0}
 --- !u!61 &1239776760
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9346,6 +9348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwitchDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 7463825677002327676, guid: 302889a2594b1334197ae60a395690e0, type: 3}
+      propertyPath: otherButton
+      value: 
+      objectReference: {fileID: 1239776759}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 302889a2594b1334197ae60a395690e0, type: 3}
 --- !u!1001 &8807424306490385929

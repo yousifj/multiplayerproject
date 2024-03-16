@@ -5,7 +5,8 @@ using UnityEngine;
 public class KeyButton : MonoBehaviour
 {
     [SerializeField] Door door;
-    int keysPresses;
+    [SerializeField] KeyButton otherButton;
+    bool keysPressed = false;
 
     Animator animator;
 
@@ -13,22 +14,30 @@ public class KeyButton : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-
-    // Open the door when the button is clicked
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        keysPresses++;
-        door.openDoor();
-        animator.SetBool("isClicked", true);
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (player) { 
+            keysPressed = true;
+            door.openDoor();
+            animator.SetBool("isClicked", true);
+        }
     }
+    // Open the door when the button is clicked
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        keysPresses--;
-        if (keysPresses == 0)
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (player)
         {
-            door.closeDoor();
+            keysPressed = false;
             animator.SetBool("isClicked", false);
+            if (!otherButton.keysPressed)
+            {
+                door.closeDoor();    
+            }
         }
+
 
     }
 }
