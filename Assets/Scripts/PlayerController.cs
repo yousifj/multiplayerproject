@@ -17,6 +17,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] float climeSpeed = 1f;
     [SerializeField] Vector2 deathJump = new Vector2(25, 50);
     [SerializeField] CinemachineVirtualCamera vc;
+    [SerializeField] AudioListener audioListener;
 
 
 
@@ -50,7 +51,7 @@ public class PlayerController : NetworkBehaviour
         }
         this.transform.position = respawn.transform.position;
         //FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
-
+        
     }
     // Update is called once per frame
     void Update()
@@ -70,7 +71,9 @@ public class PlayerController : NetworkBehaviour
     {
         if (IsOwner)
         {
+            audioListener = FindAnyObjectByType<Camera>().GetComponent<AudioListener>();
             vc.Priority = 1;
+            audioListener.enabled = true;
         }
         else
         {

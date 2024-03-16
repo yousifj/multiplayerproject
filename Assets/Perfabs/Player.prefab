@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 182680308}
   - component: {fileID: 182680307}
   - component: {fileID: 182680306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,8 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074971691}
   - component: {fileID: 2074971690}
-  - component: {fileID: 4221779278246328721}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,14 +166,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 182680305}
---- !u!81 &4221779278246328721
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074971689}
-  m_Enabled: 1
 --- !u!1 &6657132491892634801
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +184,7 @@ GameObject:
   - component: {fileID: -7543378724743754276}
   - component: {fileID: 275552465}
   - component: {fileID: 6137445810520095842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2939076880
+  GlobalObjectIdHash: 1516338599
   InScenePlacedSourceGlobalObjectIdHash: 1516338599
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -343,6 +334,7 @@ MonoBehaviour:
   climeSpeed: 1
   deathJump: {x: 0, y: 0}
   vc: {fileID: 2074971690}
+  audioListener: {fileID: 0}
   respawn: {fileID: 0}
 --- !u!61 &3425221174990976839
 BoxCollider2D:
