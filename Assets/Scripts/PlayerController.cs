@@ -54,8 +54,9 @@ public class PlayerController : NetworkBehaviour
             respawn = GameObject.FindGameObjectWithTag("Client");
         }
         this.transform.position = respawn.transform.position;
+        FindObjectOfType<AudioManger>().Play("Spawn");
         //FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
-        
+
     }
     // Update is called once per frame
     void Update()
@@ -202,6 +203,7 @@ public class PlayerController : NetworkBehaviour
         this.transform.position = respawn.transform.position;
         isAlive = true;
         animator.SetBool("isDead", false);
+        FindObjectOfType<AudioManger>().Play("Spawn");
         //FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
     }

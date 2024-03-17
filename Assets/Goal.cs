@@ -23,6 +23,7 @@ public class Goal : MonoBehaviour
             {
                 // Go to the next level
                 FindObjectOfType<UIManger>().NextScene();
+                FindObjectOfType<AudioManger>().Play("nextLevel");
             }
         }
     }

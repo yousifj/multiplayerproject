@@ -49,6 +49,8 @@ MonoBehaviour:
   DeathSound: {fileID: 8300000, guid: ba80165bdd992344987dd36fb2ba90c4, type: 3}
   KeyPicked: {fileID: 8300000, guid: d24cc31968db56f44bca84f706e47913, type: 3}
   switchClicked: {fileID: 8300000, guid: 11df2bace7d209340a81bd9c3798a25f, type: 3}
+  newLevel: {fileID: 8300000, guid: cf6b651dd9f65b543a3df9e6abde1ee0, type: 3}
+  spawn: {fileID: 8300000, guid: b97d21cf60a7f044ebbe446855909943, type: 3}
 --- !u!82 &2573432157120027883
 AudioSource:
   m_ObjectHideFlags: 0

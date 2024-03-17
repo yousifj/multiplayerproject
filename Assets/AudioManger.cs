@@ -8,6 +8,8 @@ public class AudioManger : MonoBehaviour
     [SerializeField] AudioClip DeathSound;
     [SerializeField] AudioClip KeyPicked;
     [SerializeField] AudioClip switchClicked;
+    [SerializeField] AudioClip newLevel;
+    [SerializeField] AudioClip spawn;
 
     AudioSource audioSource;
 
@@ -32,7 +34,14 @@ public class AudioManger : MonoBehaviour
             case "SwitchClicked":
                 audioSource.PlayOneShot(switchClicked);
                 break;
-                default: break;
+            case "Spawn":
+                audioSource.PlayOneShot(spawn);
+                break;
+            case "nextLevel":
+                audioSource.PlayOneShot(newLevel);
+                break;
+            default: 
+                break;
         }
 
     }
