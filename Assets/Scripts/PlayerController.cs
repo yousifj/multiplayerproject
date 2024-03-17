@@ -180,14 +180,17 @@ public class PlayerController : NetworkBehaviour
 
     public void Die()
     {
-        isAlive = false;
-      //  animator.SetBool("isDoubleJumping", false);
-        animator.SetBool("isDead", true);
+        // prevent player from dying multiple times from the same object
+        if (isAlive)
+        {
+            isAlive = false;
+            //  animator.SetBool("isDoubleJumping", false);
+            animator.SetBool("isDead", true);
 
-        rigidBody2D.velocity = deathJump;
-        FindObjectOfType<AudioManger>().Play("Death");
-        StartCoroutine(HandelDeath());
-        
+            rigidBody2D.velocity = deathJump;
+            FindObjectOfType<AudioManger>().Play("Death");
+            StartCoroutine(HandelDeath());
+        }
 
     }
     // Handel player death

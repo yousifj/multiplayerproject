@@ -7,6 +7,7 @@ public class KeyButton : MonoBehaviour
     [SerializeField] Door door;
     [SerializeField] KeyButton otherButton;
     bool keysPressed = false;
+    int playerCount = 0;
 
     Animator animator;
 
@@ -20,6 +21,7 @@ public class KeyButton : MonoBehaviour
         // Check if the player pressed the button
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player) {
+            playerCount++;
             // Open the door when the button is clicked by the player
             keysPressed = true;
             door.openDoor();
@@ -34,13 +36,19 @@ public class KeyButton : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player)
         {
-            // Close the door when the player leaves the switch
-            keysPressed = false;
-            animator.SetBool("isClicked", false);
-            if (!otherButton.keysPressed)
+            //check if this is the last player to leave the button
+            playerCount--;
+            if (playerCount == 0)
             {
-                door.closeDoor();
-                FindObjectOfType<AudioManger>().Play("SwitchClicked");
+                // Close the door when the player leaves the switch
+                keysPressed = false;
+                animator.SetBool("isClicked", false);
+                // Make sure the other switch it not clicked
+                if (!otherButton.keysPressed)
+                {
+                    door.closeDoor();
+                    FindObjectOfType<AudioManger>().Play("SwitchClicked");
+                }
             }
         }
 
