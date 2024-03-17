@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class Goal : MonoBehaviour
 {
+    // Cached 
     bool keyPicked = false;
     int playercount = 0;
     // Function to set the key picked
@@ -38,8 +39,4 @@ public class Goal : MonoBehaviour
         }
     }
 
-    private void CheckGoalCompletion()
-    {
-        
-    }
 }

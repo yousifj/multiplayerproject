@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class KeyButton : MonoBehaviour
 {
+    // Unity editors objects
     [SerializeField] Door door;
     [SerializeField] KeyButton otherButton;
+    // Cashed 
     bool keysPressed = false;
     int playerCount = 0;
 

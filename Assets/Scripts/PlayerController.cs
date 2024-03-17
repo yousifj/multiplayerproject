@@ -105,7 +105,7 @@ public class PlayerController : NetworkBehaviour
         rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, inputVelocity * climeSpeed);
 
     }
-
+    // deals with player running
     private void Run()
     {
         float inputVelocity = Input.GetAxisRaw("Horizontal");
@@ -114,6 +114,7 @@ public class PlayerController : NetworkBehaviour
         bool playerisMovingHorzantily = Mathf.Abs(rigidBody2D.velocity.x) > Mathf.Epsilon;
         animator.SetBool("isRuning", playerisMovingHorzantily);
     }
+    // deals with player jumping
     private void Jump()
     {
         bool doubleJumpOnce = false;
@@ -178,7 +179,7 @@ public class PlayerController : NetworkBehaviour
         //    Die();
         //}
     }
-
+    // Handel the player death 
     public void Die()
     {
         // prevent player from dying multiple times from the same object
@@ -204,7 +205,6 @@ public class PlayerController : NetworkBehaviour
         isAlive = true;
         animator.SetBool("isDead", false);
         FindObjectOfType<AudioManger>().Play("Spawn");
-        //FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
     }
     public void PlayerDisappear()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,14 +15,17 @@ public class UIManger : MonoBehaviour
     {
         NetworkManager.Singleton.StartHost();
     }
+    // Go to the next level
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    // Go to the main menu
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
     }
+    // Quit the game
     public void Quit()
     {
         Application.Quit();

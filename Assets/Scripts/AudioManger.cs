@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class AudioManger : MonoBehaviour
 {
+    // Slecet the sounds in the unrt editor
     [SerializeField] AudioClip jumpSound;
     [SerializeField] AudioClip DeathSound;
     [SerializeField] AudioClip KeyPicked;
     [SerializeField] AudioClip switchClicked;
     [SerializeField] AudioClip newLevel;
     [SerializeField] AudioClip spawn;
-
+    
+    // cached 
     AudioSource audioSource;
 
     private void Start()
@@ -20,6 +22,7 @@ public class AudioManger : MonoBehaviour
     // Method to play sounds
     public void Play(string s)
     {
+        // pick the sound passed as an argument to this method
         switch (s)
         {
             case "Jump":
