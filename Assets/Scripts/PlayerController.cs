@@ -45,14 +45,7 @@ public class PlayerController : NetworkBehaviour
         mycollider2D = GetComponent<Collider2D>();
         feetBoxcollider2D = GetComponentInChildren<BoxCollider2D>();
         gravityStart = rigidBody2D.gravityScale;
-        if (respawn == null && IsHost)
-        {
-            respawn = GameObject.FindGameObjectWithTag("Host");
-        }
-        if (respawn == null && IsClient)
-        {
-            respawn = GameObject.FindGameObjectWithTag("Client");
-        }
+        setupSpawn();
         this.transform.position = respawn.transform.position;
         FindObjectOfType<AudioManger>().Play("Spawn");
         //FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
@@ -71,6 +64,18 @@ public class PlayerController : NetworkBehaviour
             Die();
         }
 
+    }
+    // Check where the player should spawn 
+    public void setupSpawn()
+    {
+        if (respawn == null && IsHost)
+        {
+            respawn = GameObject.FindGameObjectWithTag("Host");
+        }
+        if (respawn == null && IsClient)
+        {
+            respawn = GameObject.FindGameObjectWithTag("Client");
+        }
     }
     // When the player first spawn set up the camera
     public override void OnNetworkSpawn()
@@ -188,7 +193,7 @@ public class PlayerController : NetworkBehaviour
             isAlive = false;
             //  animator.SetBool("isDoubleJumping", false);
             animator.SetBool("isDead", true);
-
+            setupSpawn();
             rigidBody2D.velocity = deathJump;
             FindObjectOfType<AudioManger>().Play("Death");
             StartCoroutine(HandelDeath());
