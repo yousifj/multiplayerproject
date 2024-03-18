@@ -46,7 +46,7 @@ public class PlayerController : NetworkBehaviour
         feetBoxcollider2D = GetComponentInChildren<BoxCollider2D>();
         gravityStart = rigidBody2D.gravityScale;
         setupSpawn();
-        this.transform.position = respawn.transform.position;
+        MovePlayerToSpawn();
         FindObjectOfType<AudioManger>().Play("Spawn");
         //FindAnyObjectByType<CinemachineScript>().lookAtNew(gameObject,IsHost);
 
@@ -68,14 +68,20 @@ public class PlayerController : NetworkBehaviour
     // Check where the player should spawn 
     public void setupSpawn()
     {
-        if (respawn == null && IsHost)
+        if (IsOwnedByServer)
         {
             respawn = GameObject.FindGameObjectWithTag("Host");
         }
-        if (respawn == null && IsClient)
+        else
         {
             respawn = GameObject.FindGameObjectWithTag("Client");
         }
+    }
+    // Move the player to the spawn point
+    public void MovePlayerToSpawn()
+    {
+        setupSpawn();
+        this.transform.position = respawn.transform.position;
     }
     // When the player first spawn set up the camera
     public override void OnNetworkSpawn()
@@ -206,7 +212,7 @@ public class PlayerController : NetworkBehaviour
         //wait few seconds (3.2 is the length of death sound)
         yield return new WaitForSeconds(3.2f);
         //return the player to spawn position
-        this.transform.position = respawn.transform.position;
+        MovePlayerToSpawn();
         isAlive = true;
         animator.SetBool("isDead", false);
         FindObjectOfType<AudioManger>().Play("Spawn");

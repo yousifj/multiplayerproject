@@ -23,7 +23,7 @@ public class Goal : MonoBehaviour
             if (keyPicked && playercount == 2)
             {
                 // Go to the next level
-                FindObjectOfType<UIManger>().NextScene();
+                FindObjectOfType<UIManger>().Nextlevel();
                 FindObjectOfType<AudioManger>().Play("nextLevel");
             }
         }
